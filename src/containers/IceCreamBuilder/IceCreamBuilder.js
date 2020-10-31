@@ -20,7 +20,7 @@ class IceCreamBuilder extends Component {
         return (
             <div className={['container', classes.container].join(' ')}>
                 <IceCream items={items} />
-                <Builder />    
+                <Builder items={items} />    
             </div>
         );
     }
