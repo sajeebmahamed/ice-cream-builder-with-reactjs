@@ -15,12 +15,22 @@ class IceCreamBuilder extends Component {
         scoope: [],
         totalPrice: 0
     }
+    addScope = (scoop) => {
+        const {scoope, items} = this.state
+        const workingScoope = [...scoope]
+        workingScoope.push(scoop)
+        this.setState({
+            scoope: workingScoope,
+            totalPrice: items[scoop]
+        })
+    }
+
     render() {
-        const {items} = this.state
+        const {items, totalPrice} = this.state
         return (
             <div className={['container', classes.container].join(' ')}>
-                <IceCream items={items} />
-                <Builder items={items} />    
+                <IceCream/>
+                <Builder items={items} price={totalPrice} />    
             </div>
         );
     }
