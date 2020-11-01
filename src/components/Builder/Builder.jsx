@@ -10,9 +10,9 @@ const Builder = ({ items, price, add, remove, scoope }) => {
         <h3> Build your own Ice Cream </h3>
         <Items items={items} add={add} remove={remove} scoope={scoope} />
         <TotalPrice price={price} />
-        <button type="button" className={[classes.order, "rounded"].join(" ")}>
+        {/* <button type="button" className={[classes.order, "rounded"].join(" ")}>
           Add to Cart
-        </button>
+        </button> */}
       </div>
       <Modal>hello</Modal>
     </div>
