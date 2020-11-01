@@ -1,13 +1,13 @@
 import React from 'react';
 import Item from './Item/Item';
 
-const Items = ({items}) => {
+const Items = ({items, add, remove}) => {
     const flavors = Object.keys(items)
     return (
       <div>
         <ul>
           {flavors.map((flavor) => (
-            <Item name={flavor} />
+            <Item name={flavor} add={add} remove={remove} />
           ))}
         </ul>
       </div>

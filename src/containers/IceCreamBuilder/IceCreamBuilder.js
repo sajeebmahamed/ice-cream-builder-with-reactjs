@@ -19,9 +19,27 @@ class IceCreamBuilder extends Component {
         const {scoope, items} = this.state
         const workingScoope = [...scoope]
         workingScoope.push(scoop)
-        this.setState({
-            scoope: workingScoope,
-            totalPrice: items[scoop]
+        this.setState((prevState) => {
+            return {
+                scoope: workingScoope,
+                totalPrice: prevState.totalPrice + items[scoop]
+            }
+        })
+    }
+
+    removeScope = (scoop) => {
+        const { scoope, items } = this.state
+        const workingScoope = [...scoope]
+        
+        const scoopeIndex = workingScoope.findIndex((sc) => sc === scoop)
+
+        workingScoope.splice(scoopeIndex, 1)
+
+        this.setState((prevState) => {
+            return {
+                scoope: workingScoope,
+                totalPrice: prevState.totalPrice - items[scoop]
+            }
         })
     }
 
@@ -30,7 +48,7 @@ class IceCreamBuilder extends Component {
         return (
             <div className={['container', classes.container].join(' ')}>
                 <IceCream/>
-                <Builder items={items} price={totalPrice} />    
+                <Builder items={items} price={totalPrice} add={this.addScope} remove={this.removeScope} />    
             </div>
         );
     }
