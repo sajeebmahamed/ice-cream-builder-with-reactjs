@@ -44,10 +44,10 @@ class IceCreamBuilder extends Component {
     }
 
     render() {
-        const {items, totalPrice} = this.state
+        const { items, totalPrice, scoope} = this.state
         return (
             <div className={['container', classes.container].join(' ')}>
-                <IceCream/>
+                <IceCream scoops={scoope} />
                 <Builder items={items} price={totalPrice} add={this.addScope} remove={this.removeScope} />    
             </div>
         );
